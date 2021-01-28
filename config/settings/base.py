@@ -42,7 +42,7 @@ LOCALE_PATHS = [str(ROOT_DIR / "locale")]
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
 DATABASES = {
-    "default": env.db("DATABASE_URL", default="postgres://localhost/djangogram")
+    "default": env.db("DATABASE_URL", default="postgres://postgres:root@localhost:5432/djangogram")
 }
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
@@ -65,6 +65,7 @@ DJANGO_APPS = [
     # "django.contrib.humanize", # Handy template tags
     "django.contrib.admin",
     "django.forms",
+    "djangogram",
 ]
 THIRD_PARTY_APPS = [
     "crispy_forms",
@@ -76,6 +77,8 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     "djangogram.users.apps.UsersConfig",
     # Your stuff: custom apps go here
+    #"djangogram.posts.apps.postsConfig",
+
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
